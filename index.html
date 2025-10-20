@@ -3,307 +3,259 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Consolidado Cisco — Módulos 1–6 (PRO)</title>
-<meta name="description" content="Versión enriquecida del consolidado de los módulos 1 a 6 del curso Conceptos Básicos de Redes - NetAcad. Interactivo, responsive y educativo.">
+<title>Consolidado Cisco — Módulos 1–6 (PRO+)</title>
+<meta name="description" content="Versión ampliada y didáctica de los módulos 1 a 6 del curso Conceptos Básicos de Redes - NetAcad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>
   /* =========================
-     Cisco PRO — Azul / Gris / Oscuro (degradados suaves)
+     Cisco PRO+ — Full Single File
      ========================= */
   :root{
-    --bg-1: #f4f8fb;
-    --bg-2: #e9f2fb;
-    --panel: #ffffff;
-    --muted: #6b7b86;
-    --text: #072235;
-    --accent1: #0066b3; /* Cisco-blue darker */
-    --accent2: #1fb3ff; /* lighter blue */
-    --accent3: #0b3b5a; /* deep navy */
-    --glass: rgba(11,59,90,0.06);
-    --card-shadow: 0 12px 40px rgba(7,34,53,0.08);
-    --btn-shadow: 0 8px 20px rgba(6,24,44,0.08);
-    --radius: 12px;
+    --bg-1: #e9f5ff;
+    --bg-2: #f4fbff;
+    --panel:#ffffff;
+    --text:#04293a;
+    --muted:#6b7f8c;
+    --accent1:#0050A0; /* Cisco blue */
+    --accent2:#00A8FF;
+    --accent3:#0f1724;
+    --glass: rgba(0,80,160,0.06);
+    --radius:14px;
+    --shadow-lg: 0 30px 80px rgba(6,24,44,0.08);
+    --shadow-sm: 0 6px 20px rgba(6,24,44,0.06);
+    --max-width:1400px;
     --ease: cubic-bezier(.2,.9,.3,1);
-    --maxw: 1400px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Helvetica Neue", monospace;
   }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, Arial, system-ui; background:linear-gradient(180deg,var(--bg-1),var(--bg-2)); color:var(--text); -webkit-font-smoothing:antialiased;}
-  a{color:inherit}
-  /* Layout */
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial; background:linear-gradient(180deg,var(--bg-1),var(--bg-2)); color:var(--text); -webkit-font-smoothing:antialiased;}
+  /* App layout */
   .app{display:flex;min-height:100vh;align-items:stretch;}
   /* Sidebar */
   .sidebar{
-    width:320px;min-width:260px;padding:28px 20px;background:linear-gradient(180deg, var(--accent1), var(--accent3));
-    color:white;position:fixed;left:0;top:0;bottom:0;display:flex;flex-direction:column;gap:18px;box-shadow:var(--card-shadow);
+    width:320px;
+    background:linear-gradient(180deg,var(--accent1),var(--accent2));
+    color:white;padding:28px 22px;position:fixed;left:0;top:0;bottom:0;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-lg);
+    transition:all .25s var(--ease);
   }
-  .brand{display:flex;gap:12px;align-items:center}
-  .logo{
-    width:62px;height:62px;border-radius:14px;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.06));
-    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:var(--panel);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,0.04);
+  .brand{display:flex;gap:14px;align-items:center}
+  .brand .logo{
+    width:64px;height:64px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(255,255,255,0.14),rgba(255,255,255,0.06));
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:24px;color:white;
+    box-shadow:var(--shadow-sm);
   }
-  .brand h1{font-size:16px;margin:0}
+  .brand h1{font-size:18px;margin:0;font-weight:800}
   .brand p{margin:0;font-size:13px;opacity:0.95}
-  .menu{display:flex;flex-direction:column;gap:10px;overflow:auto;padding-right:6px;margin-top:8px}
+  .menu{display:flex;flex-direction:column;gap:10px;overflow:auto;padding-right:6px;padding-left:4px}
   .menu button{
-    background:transparent;border:none;color:inherit;text-align:left;padding:10px;border-radius:10px;display:flex;gap:12px;align-items:center;font-weight:800;cursor:pointer;transition:all .22s var(--ease);
+    background:transparent;border:none;color:inherit;text-align:left;padding:12px;border-radius:12px;display:flex;gap:14px;align-items:center;font-weight:700;cursor:pointer;transition:all .18s var(--ease);
+    box-shadow: none;
   }
-  .menu button .num{width:40px;height:40px;border-radius:9px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-weight:900}
+  .menu button .num{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-weight:900}
   .menu button:hover{transform:translateX(6px);background:rgba(255,255,255,0.04)}
-  .menu button.active{background:linear-gradient(90deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06));box-shadow:inset 0 1px 0 rgba(255,255,255,0.03)}
-  .sidebar .note{margin-top:auto;font-size:13px;color:rgba(255,255,255,0.92);opacity:0.95}
-  .sidebar .hint{font-size:12px;opacity:0.85}
+  .menu button.active{background:linear-gradient(90deg,rgba(0,0,0,0.12),rgba(255,255,255,0.04));box-shadow:inset 0 1px 0 rgba(255,255,255,0.04)}
+  .sidebar .note{margin-top:auto;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.06);font-size:13px}
   /* Main */
-  .main{margin-left:320px;padding:28px 36px;width:calc(100% - 320px)}
-  .container{max-width:var(--maxw);margin:0 auto}
-  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
-  .title{font-size:22px;font-weight:900}
-  .subtitle{color:var(--muted);font-size:14px}
-
+  .main{margin-left:320px;width:calc(100% - 320px);padding:28px 40px;min-height:100vh}
+  .container{max-width:var(--max-width);margin:0 auto}
+  header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+  header .title{font-size:20px;font-weight:900}
+  header .subtitle{color:var(--muted);font-size:14px}
+  .controls{display:flex;gap:10px;align-items:center}
+  .btn{
+    padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;font-weight:800;cursor:pointer;box-shadow:var(--shadow-sm);
+  }
   /* Module card */
   section.module{
-    background:linear-gradient(180deg,var(--panel), #fbfeff);border-radius:var(--radius);
-    padding:26px;margin-bottom:28px;box-shadow:var(--card-shadow);scroll-margin-top:28px;
+    background:linear-gradient(180deg,var(--panel),#fbfdff);border-radius:14px;padding:26px;margin-bottom:28px;box-shadow:var(--shadow-lg);min-height:60vh;scroll-margin-top:28px;
   }
-  section.module h2{font-size:20px;margin:0 0 6px 0;color:var(--accent1)}
-  section.module .lead{color:var(--muted);margin-bottom:14px}
-  section.module h3{margin-top:14px;color:var(--accent3)}
-  section.module p{line-height:1.6;margin-top:10px;color:#12323f}
-  .row{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
-  .panel{background:linear-gradient(180deg,#fff,#f7fbff);padding:14px;border-radius:10px;border:1px solid rgba(2,10,30,0.03)}
+  section.module h2{font-size:22px;margin-bottom:6px;color:var(--accent3)}
+  .lead{color:var(--muted);margin-bottom:12px}
+  h3.sub{margin-top:16px;color:var(--accent1);font-size:16px}
+  p{line-height:1.6;margin-top:10px;color:#12323f}
+  .two-col{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+  .panel{background:linear-gradient(180deg,#f9fdff,#f4fbff);padding:14px;border-radius:12px;border:1px solid rgba(6,24,44,0.03)}
   .panel h4{margin:0 0 8px 0}
-  .kpis{display:flex;gap:10px;margin-top:8px;flex-direction:column}
-  .kpi{background:var(--glass);padding:10px;border-radius:8px;text-align:left}
-  .kpi strong{display:block;font-size:15px;color:var(--accent3)}
-  /* Accordion style */
-  .accordion{margin-top:12px}
-  .acc-item{border-radius:10px;margin-bottom:8px;overflow:hidden;border:1px solid rgba(6,24,44,0.04);background:linear-gradient(180deg,#fff,#fbfdff)}
-  .acc-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;cursor:pointer;font-weight:800}
-  .acc-header .label{display:flex;gap:10px;align-items:center}
-  .acc-header svg{opacity:0.9}
-  .acc-body{max-height:0;overflow:hidden;padding:0 14px;transition:max-height .36s var(--ease);border-top:1px dashed rgba(6,24,44,0.03)}
-  .acc-body.open{padding:12px 14px;max-height:800px}
-  .acc-body p{margin:0;color:#15323f}
-  /* small info box */
-  .info-box{background:linear-gradient(90deg,rgba(0,102,179,0.04),rgba(31,179,255,0.02));padding:10px;border-radius:8px;border:1px solid rgba(0,102,179,0.06);margin-top:10px}
+  .kpis{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .kpi{display:flex;flex-direction:column;background:var(--glass);padding:10px;border-radius:10px}
+  .kpi strong{display:block;font-size:15px}
+  /* Accordion group */
+  .accordion-group{margin-top:10px;border-radius:10px;overflow:visible}
+  .acc-item{margin-bottom:10px;border-radius:10px;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .acc-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:linear-gradient(90deg,#fff,#f3fbff);cursor:pointer;border:1px solid rgba(2,10,30,0.03);font-weight:800}
+  .acc-head .title{display:flex;gap:10px;align-items:center}
+  .acc-head .dot{width:36px;height:36px;border-radius:8px;background:linear-gradient(90deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:900}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .42s var(--ease);padding:0 14px;background:linear-gradient(180deg,#fff,#fbfdff);border-left:1px solid rgba(2,10,30,0.03);border-right:1px solid rgba(2,10,30,0.03);border-bottom:1px solid rgba(2,10,30,0.03)}
+  .acc-body.open{padding:14px}
+  .acc-body p{margin:0}
   /* Quiz */
-  .quiz{margin-top:16px;padding:12px;border-radius:10px;border:1px solid rgba(2,10,30,0.03);background:linear-gradient(180deg,#fff,#f8fbff)}
-  .question{font-weight:900;margin-top:10px}
-  .options{margin-top:10px;display:flex;flex-direction:column;gap:8px}
-  .opt{padding:10px;border-radius:8px;border:1px solid rgba(2,10,30,0.03);cursor:pointer;background:white;transition:all .18s var(--ease);font-weight:700}
+  .quiz{margin-top:16px;padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#f8fbff);border:1px solid rgba(2,10,30,0.03)}
+  .question{font-weight:900}
+  .options{margin-top:10px;display:flex;flex-direction:column;gap:10px}
+  .opt{
+    padding:12px;border-radius:10px;border:1px solid rgba(2,10,30,0.04);cursor:pointer;background:white;transition:all .15s var(--ease);display:flex;justify-content:space-between;align-items:center;font-weight:700;
+  }
   .opt:hover{transform:translateX(6px)}
-  .opt.correct{background:linear-gradient(90deg,#e6fff3,#d7ffee);border-color:#00b37a}
+  .opt.correct{background:linear-gradient(90deg,#e6fff3,#d7ffee);border-color:#05a06a}
   .opt.wrong{background:linear-gradient(90deg,#fff1f1,#ffecec);border-color:#ff6b6b}
-  .opt.disabled{opacity:0.7;pointer-events:none}
-  .feedback{margin-top:8px;color:var(--muted);font-weight:700}
-  .quiz-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-  .btn{padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:800;box-shadow:var(--btn-shadow);transition:all .18s var(--ease)}
-  .btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white}
-  .btn.ghost{background:transparent;border:1px solid rgba(6,24,44,0.06)}
-  .score-pill{background:rgba(11,59,90,0.06);padding:8px 12px;border-radius:999px;font-weight:900}
-
-  /* Footer */
-  footer{margin-top:24px;color:var(--muted);text-align:center;padding-bottom:40px}
-
-  /* Responsive */
-  @media (max-width:1100px){
-    .row{grid-template-columns:1fr}
-    .sidebar{position:fixed;height:64px;bottom:auto;display:flex;flex-direction:row;gap:8px;padding:12px;align-items:center;width:100%;left:0;top:0}
-    .sidebar .menu{flex-direction:row;gap:6px;overflow:auto}
-    .main{margin-left:0;padding-top:86px}
-  }
-  @media (max-width:700px){
-    .menu button .num{width:32px;height:32px}
-    .logo{width:44px;height:44px}
-  }
-
+  .feedback{margin-top:10px;font-weight:800;color:var(--muted)}
   /* small helpers */
-  .muted{color:var(--muted)}
-  .tiny{font-size:13px;color:var(--muted)}
-  .hr{height:1px;background:linear-gradient(90deg,transparent,rgba(6,24,44,0.04),transparent);margin:10px 0;border-radius:2px}
+  .small{font-size:13px;color:var(--muted)}
+  .code{font-family:var(--mono);font-size:13px;background:#071b2a;color:#e6fbff;padding:8px;border-radius:8px;display:block}
+  /* Footer */
+  footer{margin-top:26px;color:var(--muted);text-align:center;font-weight:700}
+  /* Responsive */
+  @media(max-width:1100px){
+    .two-col{grid-template-columns:1fr}
+    .sidebar{position:fixed;left:0;right:0;top:0;height:72px;display:flex;flex-direction:row;align-items:center;padding:10px 12px;width:100%;z-index:50}
+    .sidebar .brand{display:none}
+    .menu{flex-direction:row;gap:8px;overflow:auto;padding:0}
+    .menu button{padding:10px;border-radius:10px}
+    .main{margin-left:0;padding:16px}
+  }
+  @media(max-width:600px){
+    .menu .num{display:none}
+    .panel{display:none}
+  }
 </style>
 </head>
 <body>
-<div class="app" id="app">
-  <aside class="sidebar" aria-label="Navegación principal">
+<div class="app" id="app-root">
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Navegación">
     <div class="brand">
-      <div class="logo" aria-hidden="true">C</div>
+      <div class="logo">C</div>
       <div>
-        <h1 style="margin:0">Conceptos Básicos de Redes</h1>
-        <p style="margin:0;font-size:13px">Consolidado · Módulos 1–6 · Versión PRO</p>
+        <h1>Conceptos Básicos de Redes</h1>
+        <p>Consolidado Módulos 1–6 · Versión PRO+</p>
       </div>
     </div>
 
     <nav class="menu" role="navigation" aria-label="Módulos">
-      <button class="active" data-target="m1" onclick="gotoModule('m1')"><span class="num">1</span> <span>Módulo 1</span></button>
-      <button data-target="m2" onclick="gotoModule('m2')"><span class="num">2</span> <span>Módulo 2</span></button>
-      <button data-target="m3" onclick="gotoModule('m3')"><span class="num">3</span> <span>Módulo 3</span></button>
-      <button data-target="m4" onclick="gotoModule('m4')"><span class="num">4</span> <span>Módulo 4</span></button>
-      <button data-target="m5" onclick="gotoModule('m5')"><span class="num">5</span> <span>Módulo 5</span></button>
-      <button data-target="m6" onclick="gotoModule('m6')"><span class="num">6</span> <span>Módulo 6</span></button>
+      <button class="active" data-target="m1" onclick="gotoModule('m1')"><span class="num">1</span>Módulo 1</button>
+      <button data-target="m2" onclick="gotoModule('m2')"><span class="num">2</span>Módulo 2</button>
+      <button data-target="m3" onclick="gotoModule('m3')"><span class="num">3</span>Módulo 3</button>
+      <button data-target="m4" onclick="gotoModule('m4')"><span class="num">4</span>Módulo 4</button>
+      <button data-target="m5" onclick="gotoModule('m5')"><span class="num">5</span>Módulo 5</button>
+      <button data-target="m6" onclick="gotoModule('m6')"><span class="num">6</span>Módulo 6</button>
     </nav>
 
-    <div class="note">
-      <div class="hint">Interactúa con cada módulo: abre conceptos, practica y evalúa. Diseño: azul / gris / oscuro.</div>
-      <div style="height:8px"></div>
-      <div class="tiny">Archivo único: <strong>index_pro_cisco.html</strong></div>
+    <div class="note small">
+      <strong>Versión:</strong> PRO+ · Contenido ampliado y evaluaciones aleatorias.
     </div>
   </aside>
 
+  <!-- Main content -->
   <main class="main" role="main">
     <div class="container">
       <header class="top">
         <div>
-          <div class="title">Consolidado PRO — Conceptos Básicos de Redes</div>
-          <div class="subtitle">Contenido ampliado, ejercicios y autoevaluaciones por módulo</div>
+          <div class="title">Consolidado — Conceptos Básicos de Redes</div>
+          <div class="subtitle">Módulos 1–6 · Contenido ampliado · Interactivo · Responsive</div>
         </div>
-        <div style="display:flex;gap:10px;align-items:center">
-          <button class="btn ghost" onclick="prevModule()">← Anterior</button>
-          <button class="btn primary" onclick="nextModule()">Siguiente →</button>
+        <div class="controls">
+          <button class="btn" onclick="prevModule()">← Anterior</button>
+          <button class="btn" onclick="nextModule()">Siguiente →</button>
         </div>
       </header>
 
       <!-- ================= MODULE 1 ================= -->
       <section class="module" id="m1" tabindex="0" aria-label="Módulo 1">
         <h2>Módulo 1 — Comunicación en un mundo conectado</h2>
-        <div class="lead">Introducción a redes, importancia de la comunicación, analogías y elementos básicos.</div>
+        <div class="lead">Fundamentos: ¿qué es una red?, por qué importan las comunicaciones y conceptos esenciales.</div>
 
-        <div class="row">
+        <div class="two-col">
           <div>
-            <h3>Introducción</h3>
-            <p>Las redes conectan personas y dispositivos. Entender las piezas, cómo se comunican y por qué las redes son importantes es la base para todo profesional de TI.</p>
+            <h3 class="sub">Introducción</h3>
+            <p>Una red es una colección de dispositivos interconectados que intercambian información usando reglas comunes (protocolos). Las redes permiten compartir recursos, datos y servicios entre usuarios y sistemas. Entender lo básico es clave para diseñar, mantener y asegurar infraestructuras modernas.</p>
 
-            <div class="accordion" id="m1-acc">
+            <div class="accordion-group" data-module="m1">
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m1-lan">
-                  <div class="label">
-                    <!-- icon -->
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h16" stroke="#0b3b5a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <div>
-                      <div style="font-weight:900">Tipos de redes (LAN / WAN / SOHO)</div>
-                      <div class="tiny">Haz clic para ver definiciones y ejemplos</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)">
+                  <div class="title"><div class="dot">A</div><div>Tipos de redes (visión amplia)</div></div>
+                  <div class="chev">▸</div>
                 </div>
-                <div class="acc-body" id="m1-lan">
-                  <p><strong>LAN (Local Area Network):</strong> Red en un área limitada (casa, oficina). Ejemplo: PCs y una impresora compartida en una oficina.</p>
-                  <p><strong>WAN (Wide Area Network):</strong> Red que cubre grandes áreas: Internet es la WAN más grande.</p>
-                  <p><strong>SOHO:</strong> Pequeñas redes de oficina en casa; suelen usar routers domésticos con NAT y DHCP.</p>
+                <div class="acc-body">
+                  <p><strong>LAN (Local Area Network):</strong> redes en un área limitada (hogar, oficina). Alta velocidad y baja latencia. Ejemplo: red doméstica con router + switch.</p>
+                  <p><strong>WAN (Wide Area Network):</strong> interconecta LANs en regiones grandes. Internet es la WAN pública más amplia. Proveedores usan enlaces dedicados, MPLS, fibra.</p>
+                  <p><strong>SOHO:</strong> pequeñas redes para oficinas en casa; suelen usar routers integrados con Wi-Fi y NAT.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m1-mid">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="6" r="2.2" stroke="#0b3b5a" stroke-width="1.6"/><circle cx="6" cy="18" r="2.2" stroke="#0b3b5a" stroke-width="1.6"/><circle cx="18" cy="18" r="2.2" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Dispositivos: Host, Switch, Router</div>
-                      <div class="tiny">Qué hacen y cómo se relacionan</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)">
+                  <div class="title"><div class="dot">B</div><div>Elementos básicos: Hosts, Switches, Routers</div></div>
+                  <div class="chev">▸</div>
                 </div>
-                <div class="acc-body" id="m1-mid">
-                  <p><strong>Host:</strong> Dispositivo final (ordenadores, móviles).</p>
-                  <p><strong>Switch:</strong> Conecta dispositivos dentro de la misma LAN, aprende direcciones MAC y hace conmutación eficiente.</p>
-                  <p><strong>Router:</strong> Conecta redes diferentes y decide rutas de paquetes basándose en direcciones IP.</p>
-                  <div class="info-box">Ejemplo práctico: el router de casa conecta tu LAN a la WAN (Internet). Los switches conectan PCs y consolas a la red interna.</div>
+                <div class="acc-body">
+                  <p><strong>Host:</strong> dispositivo final que consume servicios (PC, móvil, IoT).</p>
+                  <p><strong>Switch:</strong> dispositivo de capa 2 que conecta hosts en la misma LAN, aprende direcciones MAC y entrega tramas localmente.</p>
+                  <p><strong>Router:</strong> dispositivo de capa 3 que enruta paquetes entre redes IP distintas, toma decisiones basadas en tablas de enrutamiento.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m1-terms">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18" stroke="#0b3b5a" stroke-width="1.6" stroke-linecap="round"/><path d="M3 12h18" stroke="#0b3b5a" stroke-width="1.6" stroke-linecap="round"/></svg>
-                    <div>
-                      <div style="font-weight:900">Términos clave</div>
-                      <div class="tiny">Ancho de banda, latencia, throughput</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)">
+                  <div class="title"><div class="dot">C</div><div>Analogía útil</div></div>
+                  <div class="chev">▸</div>
                 </div>
-                <div class="acc-body" id="m1-terms">
-                  <p><strong>Ancho de banda:</strong> Capacidad máxima teórica de un enlace (ej. 100 Mbps).</p>
-                  <p><strong>Latencia:</strong> Tiempo que tarda un paquete en ir y volver (ms).</p>
-                  <p><strong>Throughput:</strong> Rendimiento real observado (puede ser menor que el ancho de banda por congestión o errores).</p>
+                <div class="acc-body">
+                  <p>Imagínate la red como un sistema de transporte: los datos son vehículos, las calles locales son switches y las autopistas y cruces principales son routers. El ancho de banda sería la capacidad de la carretera (carriles) y la latencia el tiempo de viaje.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m1-analogy">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0b3b5a" stroke-width="1.6" stroke-linecap="round"/></svg>
-                    <div>
-                      <div style="font-weight:900">Analogía: red como carreteras</div>
-                      <div class="tiny">Vehículos = datos, calles = switches, intersecciones = routers</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)">
+                  <div class="title"><div class="dot">D</div><div>Sabías que…</div></div>
+                  <div class="chev">▸</div>
                 </div>
-                <div class="acc-body" id="m1-analogy">
-                  <p>Los datos viajan como vehículos: si la carretera (enlace) es ancha (alto ancho de banda) caben más vehículos; si hay semáforos lentos (latencia) tardan más en pasar.</p>
+                <div class="acc-body">
+                  <p>El primer mensaje enviado entre dos máquinas históricas fue muy sencillo, pero la complejidad de las redes modernas creció exponencialmente. Hoy, protocolos como TCP/IP permiten la comunicación global de trillones de paquetes diarios.</p>
                 </div>
               </div>
             </div>
 
-            <!-- Extra content -->
-            <h3>Ejercicio práctico</h3>
-            <p>Lista los dispositivos conectados en tu casa y determina si están en la LAN (por cable) o por Wi-Fi. Identifica el router y los puertos LAN.</p>
-
-            <!-- Autoevaluación -->
-            <div class="quiz" data-module="m1">
+            <!-- Quiz M1 -->
+            <div class="quiz" data-quiz="m1">
               <div class="question">1) ¿Cuál es la función principal de un router?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this, 'm1')">Encaminar paquetes entre redes</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Almacenar archivos grandes</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Convertir formatos de video</div>
+              <div class="options" data-explanations='[
+                "Encaminar paquetes entre redes; toma decisiones basadas en direcciones IP y tablas de enrutamiento.",
+                "Almacenar archivos; eso es función de servidores o NAS.",
+                "Convertir formatos de video; no es una función de dispositivos de red."
+              ]'>
+                <div class="opt" data-correct="true">Encaminar paquetes entre redes</div>
+                <div class="opt" data-correct="false">Almacenar archivos grandes</div>
+                <div class="opt" data-correct="false">Convertir formatos de video</div>
               </div>
-              <div class="question">2) ¿Qué representa ancho de banda?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this, 'm1')">Capacidad máxima del enlace</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">El tiempo de ida y vuelta</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Una dirección IP</div>
-              </div>
-              <div class="question">3) ¿Qué dispositivo conecta hosts dentro de una LAN?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this, 'm1')">Switch</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Módem</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">DNS</div>
-              </div>
-              <div class="question">4) Latencia mide:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this, 'm1')">Tiempo que tarda un paquete en ir y volver</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Capacidad del enlace</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Número de dispositivos</div>
-              </div>
-              <div class="question">5) ¿Qué es throughput?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this, 'm1')">Rendimiento real observado</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Tipo de cable</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this, 'm1')">Un protocolo</div>
-              </div>
+              <div class="feedback"></div>
+            </div>
 
-              <div class="quiz-footer">
-                <div class="tiny">Puntuación módulo 1: <span class="score-pill" id="score-m1">0 / 5</span></div>
-                <div style="display:flex;gap:8px">
-                  <button class="btn ghost" onclick="resetQuiz('m1')">Reset</button>
-                  <button class="btn primary" onclick="showModuleReport('m1')">Ver informe</button>
-                </div>
+            <div class="quiz" data-quiz="m1-2">
+              <div class="question">2) ¿Qué representa el ancho de banda?</div>
+              <div class="options" data-explanations='[
+                "La capacidad máxima teórica de un enlace medida en Mbps o Gbps; determina cuánta información puede pasar por segundo.",
+                "Latencia; el tiempo de ida y vuelta.",
+                "Dirección IP; identifica un host."
+              ]'>
+                <div class="opt" data-correct="true">Capacidad teórica del enlace (Mbps/Gbps)</div>
+                <div class="opt" data-correct="false">Velocidad de salto o latencia</div>
+                <div class="opt" data-correct="false">Identificación del host (IP)</div>
               </div>
+              <div class="feedback"></div>
             </div>
 
           </div>
 
-          <aside class="panel" aria-hidden="false">
+          <aside class="panel">
             <h4>Resumen rápido</h4>
-            <p class="muted">Conceptos: LAN/WAN, Hosts, Switches, Routers, Ancho de banda y latencia.</p>
-            <div class="hr"></div>
+            <p class="small">Tipos: LAN, WAN, SOHO. Dispositivos: Host, Switch, Router. Conceptos: ancho de banda, latencia, throughput.</p>
+
             <div class="kpis">
-              <div class="kpi"><strong>Principio</strong><span class="tiny">Interconexión y comunicación</span></div>
-              <div class="kpi"><strong>Analogía</strong><span class="tiny">Red = carreteras</span></div>
-            </div>
-            <div style="margin-top:12px">
-              <div class="tiny">Consejo: documenta IPs y puertos en tu red doméstica. Mantén contraseñas seguras.</div>
+              <div class="kpi"><strong>Conexión</strong><span class="small">Dispositivos físicos y lógicos</span></div>
+              <div class="kpi"><strong>Rol</strong><span class="small">Acceso, transporte, enrutamiento</span></div>
             </div>
           </aside>
         </div>
@@ -311,532 +263,382 @@
 
       <!-- ================= MODULE 2 ================= -->
       <section class="module" id="m2" tabindex="0" aria-label="Módulo 2">
-        <h2>Módulo 2 — Componentes, tipos y conexiones</h2>
-        <div class="lead">Dispositivos de red, arquitectura cliente/servidor, medios físicos y conexión al ISP.</div>
+        <h2>Módulo 2 — Componentes, medios y conexión al proveedor</h2>
+        <div class="lead">Dispositivos de infraestructura, tipos de medios y cómo se conecta un hogar o empresa al ISP.</div>
 
-        <div class="row">
+        <div class="two-col">
           <div>
-            <h3>Roles y dispositivos</h3>
-            <p>Distinguimos entre hosts, dispositivos intermedios y equipos de infraestructura. Conocer los roles te ayuda a planear y solucionar problemas.</p>
+            <h3 class="sub">Dispositivos y roles</h3>
+            <p>En una red conviven dispositivos de acceso (hosts), intermedios (switches, routers), infraestructura (módems, ONTs, APs) y servicios (servidores, controladores). Cada uno tiene responsabilidades claras.</p>
 
-            <div class="accordion" id="m2-acc">
+            <div class="accordion-group" data-module="m2">
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m2-isp">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Conexión ISP</div>
-                      <div class="tiny">Módems, ONT, tecnologías</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)">
+                  <div class="title"><div class="dot">A</div><div>Módem vs Router vs ONT</div></div><div class="chev">▸</div>
                 </div>
-                <div class="acc-body" id="m2-isp">
-                  <p>El proveedor entrega la conexión (DSL, cable, fibra). El módem/ONT adapta la señal y el router la distribuye internamente.</p>
-                  <p>Ejemplo: FTTH (Fiber To The Home) ofrece alta capacidad con baja latencia.</p>
+                <div class="acc-body">
+                  <p><strong>Módem:</strong> convierte la señal del ISP (coaxial, DSL) a una forma que los equipos locales entienden.</p>
+                  <p><strong>ONT (Optical Network Terminal):</strong> en conexiones FTTH (fibra), realiza la conversión óptica->eléctrica.</p>
+                  <p><strong>Router:</strong> distribuye y gestiona tráfico local, NAT, DHCP, firewall.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m2-cables">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="16" height="12" rx="2" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Tipos de cable</div>
-                      <div class="tiny">Cat5e, Cat6, coaxial, fibra</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m2-cables">
-                  <p><strong>Par trenzado (Cat5e/Cat6):</strong> Usados en LAN; Cat6 soporta mayores velocidades.</p>
-                  <p><strong>Coaxial:</strong> Usado por algunos ISPs; robusto para señales de RF.</p>
-                  <p><strong>Fibra óptica:</strong> Mayor capacidad; ideal para backbones.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">B</div><div>Tipos de cable</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p><strong>Par trenzado (Cat5e/Cat6):</strong> estándar para LAN; Cat6 soporta frecuencias más altas y distancias útiles para GbE y 10GbE localmente.</p>
+                  <p><strong>Fibra óptica:</strong> ideal para backbones y enlaces de larga distancia; ofrece gran capacidad y baja latencia.</p>
+                  <p><strong>Coaxial:</strong> usado en ciertos ISP y cable módems.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m2-topo">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 15v6" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Topologías y diagramas</div>
-                      <div class="tiny">Documenta la topología física y lógica</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m2-topo">
-                  <p>Documenta la topología: estrellas, anillos, mallas. Mantén mapas de IP y etiquetas de puertos para mantenimiento y escalabilidad.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">C</div><div>Arquitectura cliente-servidor</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Modelo donde clientes consumen servicios provistos por servidores. DNS, HTTP, correo, almacenamiento centralizado son ejemplos. La separación permite escalabilidad y control.</p>
                 </div>
               </div>
             </div>
 
-            <h3>Ejemplo práctico</h3>
-            <p>En una oficina pequeña, dibuja un diagrama con router, switch y PCs. Marca IPs y puertos.</p>
+            <!-- Quiz m2 (one of five) -->
+            <div class="quiz" data-quiz="m2">
+              <div class="question">1) ¿Qué dispositivo conecta la red local a múltiples redes y decide rutas?</div>
+              <div class="options" data-explanations='[
+                "Router: conecta redes y determina la mejor ruta usando tablas y protocolos de enrutamiento.",
+                "Switch: conecta dispositivos en una misma LAN a nivel de trama.",
+                "Módem: convierte la señal del ISP, no enruta entre redes."
+              ]'>
+                <div class="opt" data-correct="true">Router</div>
+                <div class="opt" data-correct="false">Switch</div>
+                <div class="opt" data-correct="false">Módem</div>
+              </div>
+              <div class="feedback"></div>
+            </div>
 
-            <div class="quiz" data-module="m2">
-              <div class="question">1) ¿Qué dispositivo conecta redes diferentes?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m2')">Router</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Switch</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Hub</div>
+            <div class="quiz" data-quiz="m2-2">
+              <div class="question">2) ¿Cuál es la ventaja principal de la fibra óptica?</div>
+              <div class="options" data-explanations='[
+                "Alta capacidad y largo alcance con inmunidad al ruido electromagnético.",
+                "Más barata que el par trenzado en todos los escenarios.",
+                "Menor ancho de banda que coaxial."
+              ]'>
+                <div class="opt" data-correct="true">Alta capacidad y largo alcance</div>
+                <div class="opt" data-correct="false">Menor costo que el par trenzado</div>
+                <div class="opt" data-correct="false">Menor ancho de banda que coaxial</div>
               </div>
-              <div class="question">2) ¿Cuál es mejor para largas distancias?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m2')">Fibra óptica</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Cat5e</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Bluetooth</div>
-              </div>
-              <div class="question">3) ¿Qué documentar en la topología?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m2')">IP, puertos y etiquetas</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Contraseñas públicas</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Registro de aplicacion</div>
-              </div>
-              <div class="question">4) ¿Qué equipo convierte la señal ISP?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m2')">Módem / ONT</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Switch</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Hub</div>
-              </div>
-              <div class="question">5) ¿Cuál es una buena práctica?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m2')">Etiquetar cables y puertos</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">No documentar la red</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m2')">Usar contraseñas 'admin'</div>
-              </div>
-
-              <div class="quiz-footer">
-                <div class="tiny">Puntuación módulo 2: <span class="score-pill" id="score-m2">0 / 5</span></div>
-                <div style="display:flex;gap:8px">
-                  <button class="btn ghost" onclick="resetQuiz('m2')">Reset</button>
-                  <button class="btn primary" onclick="showModuleReport('m2')">Ver informe</button>
-                </div>
-              </div>
+              <div class="feedback"></div>
             </div>
 
           </div>
 
           <aside class="panel">
             <h4>Resumen rápido</h4>
-            <p class="muted">Medios: cobre, fibra; Roles: ISP, módem, router, switch.</p>
-            <div class="hr"></div>
-            <div class="tiny">Buenas prácticas: mapear direcciones IP, etiquetado físico y documentación de la topología.</div>
+            <p class="small">Medios: par trenzado, coaxial, fibra. Infraestructura: módem, ONT, router, switch.</p>
+            <div class="kpis">
+              <div class="kpi"><strong>ISP</strong><span class="small">Conexión de borde</span></div>
+              <div class="kpi"><strong>LAN</strong><span class="small">Acceso y agregación</span></div>
+            </div>
           </aside>
         </div>
       </section>
 
       <!-- ================= MODULE 3 ================= -->
       <section class="module" id="m3" tabindex="0" aria-label="Módulo 3">
-        <h2>Módulo 3 — Redes inalámbricas y móviles</h2>
-        <div class="lead">Tecnologías inalámbricas (Wi-Fi, Bluetooth, NFC) y recomendaciones de seguridad.</div>
+        <h2>Módulo 3 — Redes inalámbricas y movilidad</h2>
+        <div class="lead">Tecnologías Wi-Fi, bandas, seguridad y prácticas para redes móviles e IoT.</div>
 
-        <div class="row">
+        <div class="two-col">
           <div>
-            <h3>Wi-Fi: bandas, canales y rendimiento</h3>
-            <p>Entender bandas (2.4 GHz vs 5 GHz) y selección de canales es vital para rendimiento y cobertura.</p>
+            <h3 class="sub">Wi-Fi y bandas</h3>
+            <p>Wi-Fi opera en bandas 2.4 GHz, 5 GHz y 6 GHz (según estándares). 2.4 GHz tiene mayor alcance pero más interferencias; 5 GHz mayor capacidad y menos congestión.</p>
 
-            <div class="accordion" id="m3-acc">
+            <div class="accordion-group" data-module="m3">
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m3-bands">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 12h20" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Bandas Wi-Fi</div>
-                      <div class="tiny">2.4 GHz, 5 GHz y 6 GHz</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m3-bands">
-                  <p><strong>2.4 GHz:</strong> mayor alcance, más interferencias (microondas, dispositivos IoT).</p>
-                  <p><strong>5 GHz:</strong> mayor capacidad, menor alcance; ideal para streaming y gaming.</p>
-                  <p><strong>6 GHz:</strong> nueva banda para Wi-Fi 6E con aún más capacidad (si está disponible).</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">A</div><div>Seguridad inalámbrica</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Usa WPA2 o WPA3, evita contraseñas por defecto, deshabilita administración remota si no es necesario y separa redes de invitados para IoT y visitas.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m3-security">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Seguridad inalámbrica</div>
-                      <div class="tiny">WPA2, WPA3 y prácticas</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">B</div><div>Bluetooth y NFC</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Bluetooth es ideal para dispositivos personales de corto alcance; NFC para autenticaciones y pagos de muy corto alcance.</p>
                 </div>
-                <div class="acc-body" id="m3-security">
-                  <p>Usa WPA2 o, preferiblemente, WPA3. Cambia contraseñas por defecto del router, desactiva WPS y crea redes de invitados para visitantes.</p>
+              </div>
+
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">C</div><div>Buenas prácticas Wi-Fi</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Seleccionar canales menos congestionados, colocar APs estratégicamente, usar planificación de potencia y considerar controladores para entornos empresariales.</p>
                 </div>
               </div>
             </div>
 
-            <h3>Ejemplo práctico</h3>
-            <p>Configura una red de invitados en tu router y prueba la separación de tráfico.</p>
+            <!-- quizzes -->
+            <div class="quiz" data-quiz="m3">
+              <div class="question">1) ¿Qué banda suele estar más congestionada por dispositivos domésticos?</div>
+              <div class="options" data-explanations='[
+                "2.4 GHz: muchos dispositivos y menor número de canales, lo que provoca congestión.",
+                "5 GHz: siempre congestionada (falso).",
+                "6 GHz: usada mayormente por equipos nuevos; no es la más congestionada."
+              ]'>
+                <div class="opt" data-correct="true">2.4 GHz</div>
+                <div class="opt" data-correct="false">5 GHz</div>
+                <div class="opt" data-correct="false">6 GHz</div>
+              </div>
+              <div class="feedback"></div>
+            </div>
 
-            <div class="quiz" data-module="m3">
-              <div class="question">1) ¿Qué banda suele estar más congestionada?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m3')">2.4 GHz</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">5 GHz</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">6 GHz</div>
+            <div class="quiz" data-quiz="m3-2">
+              <div class="question">2) ¿Qué estándar ofrece mejoras de seguridad y eficiencia sobre WPA2?</div>
+              <div class="options" data-explanations='[
+                "WPA3: proporciona protecciones mejoradas frente a ataques de fuerza bruta y cifrados más robustos.",
+                "WEP: es obsoleto y no seguro.",
+                "WPA: es anterior a WPA2 y menos seguro."
+              ]'>
+                <div class="opt" data-correct="true">WPA3</div>
+                <div class="opt" data-correct="false">WEP</div>
+                <div class="opt" data-correct="false">WPA</div>
               </div>
-              <div class="question">2) Recomendación de seguridad inalámbrica:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m3')">Usar WPA2/WPA3 y cambiar contraseñas</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Dejar SSID y contraseña por defecto</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Habilitar WPS para facilidad</div>
-              </div>
-              <div class="question">3) ¿Qué es Wi-Fi 6E?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m3')">Uso de la banda 6 GHz</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Una marca de router</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Un estándar Bluetooth</div>
-              </div>
-              <div class="question">4) Para redes públicas, se sugiere:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m3')">Usar VPN</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Conectarse sin precauciones</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Cerrar la sesión del router</div>
-              </div>
-              <div class="question">5) Bluetooth se usa para:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m3')">Dispositivos de corto alcance</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Conexión de backbone</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m3')">Enrutamiento IP</div>
-              </div>
-
-              <div class="quiz-footer">
-                <div class="tiny">Puntuación módulo 3: <span class="score-pill" id="score-m3">0 / 5</span></div>
-                <div style="display:flex;gap:8px">
-                  <button class="btn ghost" onclick="resetQuiz('m3')">Reset</button>
-                  <button class="btn primary" onclick="showModuleReport('m3')">Ver informe</button>
-                </div>
-              </div>
+              <div class="feedback"></div>
             </div>
 
           </div>
 
           <aside class="panel">
             <h4>Resumen rápido</h4>
-            <p class="muted">Wi-Fi: 2.4/5/6 GHz. Seguridad: WPA2/WPA3. Usa redes de invitados.</p>
+            <p class="small">Wi-Fi: 2.4/5/6 GHz. Seguridad: WPA2/WPA3. Bluetooth para corta distancia.</p>
+            <div class="kpis">
+              <div class="kpi"><strong>Banda</strong><span class="small">2.4 vs 5 GHz</span></div>
+              <div class="kpi"><strong>Seguridad</strong><span class="small">WPA3 recomendable</span></div>
+            </div>
           </aside>
         </div>
       </section>
 
       <!-- ================= MODULE 4 ================= -->
       <section class="module" id="m4" tabindex="0" aria-label="Módulo 4">
-        <h2>Módulo 4 — Redes domésticas y seguridad</h2>
-        <div class="lead">Cómo montar una red doméstica segura y mejores prácticas.</div>
+        <h2>Módulo 4 — Redes domésticas y seguridad práctica</h2>
+        <div class="lead">Cómo diseñar y asegurar una red doméstica o pequeña oficina con buenas prácticas aplicables.</div>
 
-        <div class="row">
+        <div class="two-col">
           <div>
-            <h3>Arquitectura doméstica</h3>
-            <p>ISP → módem/ONT → router → switch / AP → hosts. DHCP, NAT y políticas de seguridad ofrecen gestión básica.</p>
+            <h3 class="sub">Diseño y segmentación</h3>
+            <p>La segmentación (red principal, invitados, IoT) reduce riesgos y limita el movimiento lateral ante una intrusión. Separar redes es una de las mejores prácticas esenciales.</p>
 
-            <div class="accordion" id="m4-acc">
+            <div class="accordion-group" data-module="m4">
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m4-passwords">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="8" width="16" height="12" rx="2" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Contraseñas y actualización</div>
-                      <div class="tiny">Cambio de credenciales y firmware</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m4-passwords">
-                  <p>Cambiar las credenciales por defecto y actualizar el firmware son pasos clave. Asegura que el software del router esté al día para mitigar vulnerabilidades.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">A</div><div>Recomendaciones básicas</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Cambiar credenciales por defecto, aplicar actualizaciones de firmware, habilitar WPA2/WPA3 y usar contraseñas robustas son pasos inmediatos para endurecer una red doméstica.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m4-segmentation">
-                  <div class="label">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Segmentación: invitados / IoT</div>
-                      <div class="tiny">Proteger dispositivos críticos</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">B</div><div>IoT y riesgos</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Muchos dispositivos IoT tienen seguridad limitada. Colócalos en VLANs o SSIDs de invitados y limita su acceso a recursos sensibles.</p>
                 </div>
-                <div class="acc-body" id="m4-segmentation">
-                  <p>Separa IoT y visitantes del segmento de trabajo principal. Esto reduce exposición y riesgos de propagación.</p>
+              </div>
+
+              <div class="acc-item">
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">C</div><div>Backups y recuperación</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Mantén copias de configuración de routers y switches críticos; documenta la topología y almacena credenciales seguras de acceso.</p>
                 </div>
               </div>
             </div>
 
-            <h3>Ejemplo práctico</h3>
-            <p>Configura red de invitados en el router y prueba acceso limitado a recursos compartidos.</p>
+            <!-- Quiz -->
+            <div class="quiz" data-quiz="m4">
+              <div class="question">1) ¿Cuál es una práctica clave para mejorar la seguridad doméstica?</div>
+              <div class="options" data-explanations='[
+                "Separar la red de invitados/IoT para limitar la exposición de dispositivos personales.",
+                "Usar la contraseña 'admin' por defecto (inseguro).",
+                "Nunca actualizar el firmware (inseguro)."
+              ]'>
+                <div class="opt" data-correct="true">Separar red de invitados / IoT</div>
+                <div class="opt" data-correct="false">Usar contraseña 'admin'</div>
+                <div class="opt" data-correct="false">Dejar firmware antiguo</div>
+              </div>
+              <div class="feedback"></div>
+            </div>
 
-            <div class="quiz" data-module="m4">
-              <div class="question">1) ¿Qué mejora la seguridad doméstica?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m4')">Separar red de invitados / IoT</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Usar 'admin' como contraseña</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">No actualizar firmware</div>
+            <div class="quiz" data-quiz="m4-2">
+              <div class="question">2) ¿Por qué actualizar firmware es importante?</div>
+              <div class="options" data-explanations='[
+                "Corrige vulnerabilidades conocidas y mejora estabilidad; es una medida de seguridad esencial.",
+                "Porque aumenta el peso del dispositivo (falso).",
+                "Porque borra configuraciones automáticamente (falso)."
+              ]'>
+                <div class="opt" data-correct="true">Corrige vulnerabilidades conocidas</div>
+                <div class="opt" data-correct="false">Aumenta el peso del dispositivo</div>
+                <div class="opt" data-correct="false">Borra configuraciones</div>
               </div>
-              <div class="question">2) ¿Por qué actualizar firmware?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m4')">Cerrar vulnerabilidades</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Solo estético</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Aumentar ancho de banda</div>
-              </div>
-              <div class="question">3) ¿Qué evitar en contraseñas?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m4')">Usar 'admin' por defecto</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Contraseñas robustas</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">2FA</div>
-              </div>
-              <div class="question">4) Segmentar la red permite:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m4')">Limitar acceso entre dispositivos</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Conectar todo libremente</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Aumentar la latencia</div>
-              </div>
-              <div class="question">5) ¿Se debe cambiar la contraseña del router?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m4')">Sí, por seguridad</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">No, mantener la que viene</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m4')">Compartirla públicamente</div>
-              </div>
-
-              <div class="quiz-footer">
-                <div class="tiny">Puntuación módulo 4: <span class="score-pill" id="score-m4">0 / 5</span></div>
-                <div style="display:flex;gap:8px">
-                  <button class="btn ghost" onclick="resetQuiz('m4')">Reset</button>
-                  <button class="btn primary" onclick="showModuleReport('m4')">Ver informe</button>
-                </div>
-              </div>
+              <div class="feedback"></div>
             </div>
 
           </div>
 
           <aside class="panel">
             <h4>Resumen rápido</h4>
-            <p class="muted">Segmenta tu red, cambia contraseñas y actualiza firmware. Usa redes de invitados para IoT/visitantes.</p>
+            <p class="small">Segmentación, actualizaciones y contraseñas robustas son fundamentales para redes domésticas seguras.</p>
+            <div class="kpis">
+              <div class="kpi"><strong>Segmentación</strong><span class="small">Invitados / IoT</span></div>
+              <div class="kpi"><strong>Firmware</strong><span class="small">Mantener actualizado</span></div>
+            </div>
           </aside>
         </div>
       </section>
 
       <!-- ================= MODULE 5 ================= -->
       <section class="module" id="m5" tabindex="0" aria-label="Módulo 5">
-        <h2>Módulo 5 — Principios y protocolos</h2>
-        <div class="lead">Modelos, protocolos y direcciones: cómo se organizan las comunicaciones por capas.</div>
+        <h2>Módulo 5 — Modelos y protocolos</h2>
+        <div class="lead">Modelos de referencia (OSI y TCP/IP), protocolos importantes y direccionamiento.</div>
 
-        <div class="row">
+        <div class="two-col">
           <div>
-            <h3>Protocolos y modelos</h3>
-            <p>Los protocolos son reglas que permiten que sistemas distintos se comuniquen. Los modelos (OSI, TCP/IP) ayudan a entender funciones por capas.</p>
+            <h3 class="sub">Modelos: OSI y TCP/IP</h3>
+            <p>Los modelos ayudan a entender funciones: OSI (7 capas) y TCP/IP (4 capas). Separan responsabilidades: física, enlace, red, transporte, etc.</p>
 
-            <div class="accordion" id="m5-acc">
+            <div class="accordion-group" data-module="m5">
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m5-proto">
-                  <div class="label">
-                    <svg width="20" height="20"><path d="M4 6h16M4 12h16M4 18h16" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Protocolos clave</div>
-                      <div class="tiny">TCP, UDP, HTTP, DNS</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m5-proto">
-                  <p><strong>TCP:</strong> conexión fiable, entrega ordenada. <strong>UDP:</strong> sin conexión, rápido, para streaming/VoIP.</p>
-                  <p><strong>HTTP/HTTPS:</strong> protocolos de la web. <strong>DNS:</strong> resuelve nombres a IPs.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">A</div><div>Protocolos clave</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p><strong>TCP:</strong> orientado a conexión, entrega fiable y ordenada.</p>
+                  <p><strong>UDP:</strong> sin conexión, baja latencia, usado para streaming y DNS en algunas consultas.</p>
+                  <p><strong>HTTP/HTTPS:</strong> protocolos de aplicación para web; HTTPS cifra la comunicación.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m5-models">
-                  <div class="label">
-                    <svg width="20" height="20"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Modelos: OSI vs TCP/IP</div>
-                      <div class="tiny">Capas y responsabilidades</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m5-models">
-                  <p>OSI (7 capas) es un modelo didáctico; TCP/IP (4 capas) es el práctico. Comprende cómo los datos viajan desde la capa de aplicación hasta la física.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">B</div><div>Direccionamiento</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p><strong>MAC:</strong> identifica interfaces físicas a nivel enlace. <strong>IPv4/IPv6:</strong> identifican hosts a nivel de red. Subnetting divide redes en bloques para organización y seguridad.</p>
                 </div>
               </div>
             </div>
 
-            <h3>Ejercicio práctico</h3>
-            <p>Usa herramientas de desarrollador (navegador) para observar peticiones HTTP y entender cabeceras y respuestas.</p>
-
-            <div class="quiz" data-module="m5">
+            <!-- Quizzes -->
+            <div class="quiz" data-quiz="m5">
               <div class="question">1) ¿Qué protocolo garantiza entrega ordenada y fiable?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m5')">TCP</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">UDP</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">ARP</div>
+              <div class="options" data-explanations='[
+                "TCP: ofrece control de flujo, retransmisiones y entrega ordenada.",
+                "UDP: no garantiza orden ni retransmisión.",
+                "ARP: resuelve direcciones MAC a partir de IPs."
+              ]'>
+                <div class="opt" data-correct="true">TCP</div>
+                <div class="opt" data-correct="false">UDP</div>
+                <div class="opt" data-correct="false">ARP</div>
               </div>
-              <div class="question">2) DNS se usa para:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m5')">Resolver nombres a direcciones IP</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">Encriptar datos</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">Controlar switches</div>
-              </div>
-              <div class="question">3) OSI tiene cuántas capas?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m5')">7</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">4</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">3</div>
-              </div>
-              <div class="question">4) UDP es apropiado para:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m5')">Streaming y VoIP</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">Transferencia segura de archivos</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">Autenticación</div>
-              </div>
-              <div class="question">5) ¿Qué identifica una dirección MAC?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m5')">Una interfaz física de red</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">Un sitio web</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m5')">Un dominio DNS</div>
-              </div>
+              <div class="feedback"></div>
+            </div>
 
-              <div class="quiz-footer">
-                <div class="tiny">Puntuación módulo 5: <span class="score-pill" id="score-m5">0 / 5</span></div>
-                <div style="display:flex;gap:8px">
-                  <button class="btn ghost" onclick="resetQuiz('m5')">Reset</button>
-                  <button class="btn primary" onclick="showModuleReport('m5')">Ver informe</button>
-                </div>
+            <div class="quiz" data-quiz="m5-2">
+              <div class="question">2) ¿Qué identifica una dirección MAC?</div>
+              <div class="options" data-explanations='[
+                "Una interfaz física en la capa de enlace; es única por adaptador (habitualmente).",
+                "Un servicio web en internet (falso).",
+                "Un paquete IP (falso)."
+              ]'>
+                <div class="opt" data-correct="true">Interfaz física (MAC)</div>
+                <div class="opt" data-correct="false">Servicio web</div>
+                <div class="opt" data-correct="false">Paquete IP</div>
               </div>
+              <div class="feedback"></div>
             </div>
 
           </div>
 
           <aside class="panel">
             <h4>Resumen rápido</h4>
-            <p class="muted">Protocolos: TCP/UDP/HTTP/DNS. Modelos: OSI (7 capas) y TCP/IP (4 capas).</p>
+            <p class="small">Protocolos: TCP, UDP, HTTP(S), DNS. Modelos: OSI / TCP-IP. Direccionamiento: MAC / IP.</p>
+            <div class="kpis">
+              <div class="kpi"><strong>TCP</strong><span class="small">Fiabilidad</span></div>
+              <div class="kpi"><strong>UDP</strong><span class="small">Baja latencia</span></div>
+            </div>
           </aside>
         </div>
       </section>
 
       <!-- ================= MODULE 6 ================= -->
       <section class="module" id="m6" tabindex="0" aria-label="Módulo 6">
-        <h2>Módulo 6 — Medios de transmisión</h2>
-        <div class="lead">Comparativa entre par trenzado, coaxial, fibra y medios inalámbricos — cómo elegir.</div>
+        <h2>Módulo 6 — Medios de transmisión y selección</h2>
+        <div class="lead">Comparativa entre pares trenzados, fibra, coaxial y medios inalámbricos — criterios de elección.</div>
 
-        <div class="row">
+        <div class="two-col">
           <div>
-            <h3>Medios físicos y decisiones</h3>
-            <p>Seleccionar medio depende de distancia, capacidad, costo y entorno (interferencias, seguridad).</p>
+            <h3 class="sub">Selección del medio correcto</h3>
+            <p>El medio depende de distancia, ancho de banda, presupuesto y entorno. Fibra para larga distancia y gran capacidad; par trenzado para LAN; inalámbrico para movilidad.</p>
 
-            <div class="accordion" id="m6-acc">
+            <div class="accordion-group" data-module="m6">
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m6-cables">
-                  <div class="label">
-                    <svg width="20" height="20"><path d="M2 12h20" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Par trenzado (Cat5e/Cat6)</div>
-                      <div class="tiny">Usos en LAN y límites</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m6-cables">
-                  <p>Cat5e: hasta 1 Gbps en distancias cortas. Cat6: mayor capacidad y mejor protección contra diafonía.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">A</div><div>Par trenzado (Cat5e/Cat6)</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Cat5e adecuado para Gigabit Ethernet en distancias típicas de oficina; Cat6 y superiores permiten 10GbE a distancias cortas. Costo-efectivo y fácil de instalar.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m6-fiber">
-                  <div class="label">
-                    <svg width="20" height="20"><circle cx="12" cy="12" r="10" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Fibra óptica</div>
-                      <div class="tiny">Capacidad y distancia</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m6-fiber">
-                  <p>Fibra: transmisión por luz, ideal para backbones y largos tramos. Tiene baja atenuación y alta capacidad.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">B</div><div>Fibra óptica</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Transmisión por luz: altísima capacidad, baja pérdida y resistencia a interferencias electromagnéticas; ideal para backbones y enlaces entre edificios.</p>
                 </div>
               </div>
 
               <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)" data-acc="m6-wireless">
-                  <div class="label">
-                    <svg width="20" height="20"><path d="M4 12h16" stroke="#0b3b5a" stroke-width="1.6"/></svg>
-                    <div>
-                      <div style="font-weight:900">Wireless</div>
-                      <div class="tiny">Flexibilidad y desafíos</div>
-                    </div>
-                  </div>
-                  <div class="chev">⯈</div>
-                </div>
-                <div class="acc-body" id="m6-wireless">
-                  <p>Wireless facilita movilidad pero trae problemas de interferencia y seguridad; requiere diseño cuidadoso de ubicación y canales.</p>
+                <div class="acc-head" onclick="toggleAccordion(this)"><div class="title"><div class="dot">C</div><div>Wireless y sus limitaciones</div></div><div class="chev">▸</div></div>
+                <div class="acc-body">
+                  <p>Wireless ofrece flexibilidad, pero sufre interferencias, dependencia de espectro y consideraciones de seguridad. Es excelente para movilidad, no siempre para enlaces de alta capacidad sostenida.</p>
                 </div>
               </div>
             </div>
 
-            <h3>Ejemplo práctico</h3>
-            <p>Compara costos y beneficios para decidir entre cableado interno (Cat6) vs FTTH fibra para conexión externa.</p>
-
-            <div class="quiz" data-module="m6">
+            <!-- Quiz -->
+            <div class="quiz" data-quiz="m6">
               <div class="question">1) ¿Qué medio es el más apropiado para largas distancias y gran capacidad?</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m6')">Fibra óptica</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Par trenzado</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Bluetooth</div>
+              <div class="options" data-explanations='[
+                "Fibra óptica: ideal para largas distancias y gran capacidad con baja pérdida.",
+                "Par trenzado: apropiado para LAN, no para largas distancias.",
+                "Bluetooth: para corto alcance y baja velocidad."
+              ]'>
+                <div class="opt" data-correct="true">Fibra óptica</div>
+                <div class="opt" data-correct="false">Par trenzado</div>
+                <div class="opt" data-correct="false">Bluetooth</div>
               </div>
-              <div class="question">2) Cat6 mejora frente a Cat5e en:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m6')">Mayor capacidad y menos diafonía</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Menor costo</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Mayor interferencia</div>
-              </div>
-              <div class="question">3) Ventaja de fibra:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m6')">Baja atenuación y alta capacidad</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Fácil de empalmar sin herramientas</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Barata por metro</div>
-              </div>
-              <div class="question">4) Wireless requiere especial atención en:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m6')">Planificación de canales y seguridad</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Solo cobertura</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Reducir dispositivos</div>
-              </div>
-              <div class="question">5) Coaxial históricamente se usó en:</div>
-              <div class="options">
-                <div class="opt" data-correct="true" onclick="quizAnswer(event,this,'m6')">Servicios de TV e internet por cable</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Wi-Fi</div>
-                <div class="opt" data-correct="false" onclick="quizAnswer(event,this,'m6')">Bluetooth</div>
-              </div>
+              <div class="feedback"></div>
+            </div>
 
-              <div class="quiz-footer">
-                <div class="tiny">Puntuación módulo 6: <span class="score-pill" id="score-m6">0 / 5</span></div>
-                <div style="display:flex;gap:8px">
-                  <button class="btn ghost" onclick="resetQuiz('m6')">Reset</button>
-                  <button class="btn primary" onclick="showModuleReport('m6')">Ver informe</button>
-                </div>
+            <div class="quiz" data-quiz="m6-2">
+              <div class="question">2) ¿Qué ventaja tiene la fibra frente al cobre?</div>
+              <div class="options" data-explanations='[
+                "Mayor capacidad y menor susceptibilidad a interferencias electromagnéticas.",
+                "Siempre es más barata en todos los escenarios (falso).",
+                "No requiere conectores (falso)."
+              ]'>
+                <div class="opt" data-correct="true">Mayor capacidad y menos interferencias</div>
+                <div class="opt" data-correct="false">Siempre más barata</div>
+                <div class="opt" data-correct="false">No requiere conectores</div>
               </div>
+              <div class="feedback"></div>
             </div>
 
           </div>
 
           <aside class="panel">
             <h4>Resumen rápido</h4>
-            <p class="muted">Cat5e/Cat6 para LAN, fibra para backbone, wireless para movilidad.</p>
+            <p class="small">Par trenzado para LAN, fibra para backbones, inalámbrico para movilidad.</p>
+            <div class="kpis">
+              <div class="kpi"><strong>Cat5e/Cat6</strong><span class="small">LAN</span></div>
+              <div class="kpi"><strong>Fibra</strong><span class="small">Backbone</span></div>
+            </div>
           </aside>
         </div>
       </section>
 
       <footer>
-        <div>Archivo: <strong>index_pro_cisco.html</strong> — Diseño: Azul / Gris / Oscuro · Interactivo · Responsive</div>
-        <div class="tiny" style="margin-top:6px;color:var(--muted)">Si quieres exportar todo para entrega, sube solo este archivo. (El PDF ya no forma parte del sitio).</div>
+        Proyecto Cisco — Módulos 1 a 6 | Juan Palomo | Redes de Computadoras
       </footer>
     </div>
   </main>
@@ -844,16 +646,16 @@
 
 <script>
 /* =========================
-   JS: navegación, accordions, quizzes, scoring
+   Interactividad JS
+   - navegación
+   - accordions (uno a la vez por module)
+   - quizzes con randomización de opciones
    ========================= */
 
-/* Navigation / menu active handling */
-const menuBtns = document.querySelectorAll('.menu button');
 const modules = ['m1','m2','m3','m4','m5','m6'];
+const menuBtns = document.querySelectorAll('.menu button');
 
-function clearActiveMenu() {
-  menuBtns.forEach(b=>b.classList.remove('active'));
-}
+function clearActiveMenu(){ menuBtns.forEach(b=>b.classList.remove('active')); }
 function gotoModule(id){
   clearActiveMenu();
   const btn = document.querySelector(`.menu button[data-target="${id}"]`);
@@ -874,12 +676,12 @@ function currentIndex(){
   }
   return idx;
 }
-function prevModule(){ const i=currentIndex(); gotoModule(modules[Math.max(0,i-1)]); }
-function nextModule(){ const i=currentIndex(); gotoModule(modules[Math.min(modules.length-1,i+1)]); }
+function prevModule(){ const i=currentIndex(); gotoModule(modules[Math.max(0,i-1)]) }
+function nextModule(){ const i=currentIndex(); gotoModule(modules[Math.min(modules.length-1,i+1)]) }
 
-/* Scroll listener: update active menu */
+/* Scroll listener - update sidebar active */
 window.addEventListener('scroll', ()=>{
-  const fromTop = window.scrollY + 200;
+  const fromTop = window.scrollY + 220;
   modules.forEach((id, index)=>{
     const section = document.getElementById(id);
     if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop){
@@ -889,127 +691,139 @@ window.addEventListener('scroll', ()=>{
   });
 });
 
-/* Accordion toggles */
-function toggleAcc(header){
-  const id = header.getAttribute('data-acc');
-  const body = document.getElementById(id);
-  if(!body) return;
-  const open = body.classList.toggle('open');
-  // rotate arrow indicator
-  header.querySelector('.chev').textContent = open ? '⯆' : '⯈';
-  if(open) {
-    body.scrollIntoView({behavior:'smooth',block:'center'});
+/* Accordions: one open at a time per module group */
+function toggleAccordion(head){
+  const group = head.closest('.accordion-group');
+  if(!group) return;
+  const items = Array.from(group.querySelectorAll('.acc-item'));
+  const clickedItem = head.parentElement;
+  const body = clickedItem.querySelector('.acc-body');
+  const open = body.classList.contains('open');
+
+  // close all in this group
+  items.forEach(it=>{
+    const bd = it.querySelector('.acc-body');
+    bd.style.maxHeight = null;
+    bd.classList.remove('open');
+  });
+
+  if(!open){
+    body.classList.add('open');
+    // compute scroll-friendly height
+    body.style.maxHeight = body.scrollHeight + "px";
+    setTimeout(()=>{ head.scrollIntoView({behavior:'smooth',block:'center'}); },150);
   }
 }
 
-/* QUIZ logic: track per module answers and scoring */
-const moduleState = {}; // store answered count and correct count per module
+/* On load, ensure acc bodies with open class get heights (none open initially) */
+document.querySelectorAll('.acc-body.open').forEach(b=>b.style.maxHeight = b.scrollHeight + 'px');
 
-function initModuleState(){
-  modules.forEach(m => {
-    moduleState[m] = {answered:0, correct:0, total:5};
-    updateScoreDisplay(m);
+/* Quiz logic
+   - shuffle options order on load for each quiz
+   - show feedback and explanation on click
+*/
+function shuffleArray(array){
+  for(let i=array.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [array[i],array[j]] = [array[j],array[i]];
+  }
+  return array;
+}
+
+function initQuizzes(){
+  const quizzes = document.querySelectorAll('.quiz');
+  quizzes.forEach(q=>{
+    const optsContainer = q.querySelector('.options');
+    if(!optsContainer) return;
+    // extract option nodes
+    const options = Array.from(optsContainer.querySelectorAll('.opt'));
+    // extract explanations array if present in data-explanations
+    let explanations = [];
+    try{
+      const data = optsContainer.getAttribute('data-explanations');
+      if(data) explanations = JSON.parse(data);
+    }catch(e){
+      explanations = [];
+    }
+    // create array of objects to preserve correctness and explanation
+    const items = options.map((opt, idx)=>({
+      html: opt.innerHTML,
+      correct: opt.dataset.correct === "true",
+      node: opt,
+      expl: explanations[idx] || ''
+    }));
+    // shuffle
+    shuffleArray(items);
+    // clear container and append shuffled clones
+    optsContainer.innerHTML = '';
+    items.forEach(it=>{
+      const div = document.createElement('div');
+      div.className = 'opt';
+      div.innerHTML = it.html;
+      if(it.correct) div.setAttribute('data-correct','true'); else div.setAttribute('data-correct','false');
+      if(it.expl) div.setAttribute('data-expl', it.expl);
+      div.addEventListener('click', (ev)=> handleAnswer(ev.currentTarget, q));
+      optsContainer.appendChild(div);
+    });
   });
 }
-function updateScoreDisplay(moduleId){
-  const el = document.getElementById('score-' + moduleId.replace('m','m'));
-  if(el) el.textContent = `${moduleState[moduleId].correct} / ${moduleState[moduleId].total}`;
-}
 
-/* When user clicks an option */
-function quizAnswer(evt, el, moduleId){
-  // guard: if already disabled don't allow
-  if(el.classList.contains('disabled')) return;
-  const parentOptions = el.parentElement;
-  // disable all options for this question
-  parentOptions.querySelectorAll('.opt').forEach(o => { o.classList.add('disabled'); o.style.pointerEvents='none'; });
-  const correct = el.dataset.correct === 'true';
-  const feedbackNode = parentOptions.parentElement.querySelector('.feedback');
-  // mark
+function handleAnswer(el, quizRoot){
+  // disable clicks temporarily
+  const opts = Array.from(quizRoot.querySelectorAll('.opt'));
+  opts.forEach(o=>o.style.pointerEvents = 'none');
+
+  const correct = el.dataset.correct === "true";
+  const feedbackEl = quizRoot.querySelector('.feedback');
+  const explanation = el.dataset.expl || '';
+
   if(correct){
     el.classList.add('correct');
-    moduleState[moduleId].correct += 1;
-    if(feedbackNode) feedbackNode.textContent = "✅ Correcto — buena elección.";
+    feedbackEl.innerHTML = "✅ Correcto. " + (explanation || 'Bien hecho.');
   } else {
     el.classList.add('wrong');
-    if(feedbackNode) feedbackNode.textContent = "❌ Incorrecto. Revisa la sección correspondiente para reforzar.";
-    // highlight correct option
-    parentOptions.querySelectorAll('.opt').forEach(o => {
-      if(o.dataset.correct === "true") o.classList.add('correct');
-    });
+    // reveal correct option visually
+    const correctOpt = quizRoot.querySelector('.opt[data-correct="true"]');
+    if(correctOpt) correctOpt.classList.add('correct');
+    feedbackEl.innerHTML = "❌ Respuesta incorrecta. " + (explanation || 'Revisa el contenido del módulo.');
   }
-  moduleState[moduleId].answered += 1;
-  updateScoreDisplay(moduleId);
-  // small animation
-  el.animate([{transform:'translateX(0)'},{transform:'translateX(4px)'}], {duration:180, easing:'ease'});
+
+  // re-enable clicks after a pause (so user can retry if needed)
+  setTimeout(()=>{ opts.forEach(o=>o.style.pointerEvents="auto"); },600);
 }
 
-/* Reset quiz for a module */
-function resetQuiz(moduleId){
-  // find the quiz container by data-module
-  const quiz = document.querySelector(`.quiz[data-module="${moduleId}"]`);
-  if(!quiz) return;
-  // reset option classes and enabled
-  quiz.querySelectorAll('.opt').forEach(o => { o.classList.remove('correct','wrong','disabled'); o.style.pointerEvents='auto'; });
-  // clear feedbacks
-  quiz.querySelectorAll('.feedback').forEach(f => f.textContent = '');
-  // reset state
-  moduleState[moduleId] = {answered:0, correct:0, total:5};
-  updateScoreDisplay(moduleId);
-}
+/* Initialize everything on DOM ready */
+document.addEventListener('DOMContentLoaded', ()=>{
+  initQuizzes();
 
-/* Show module report (simple modal-like alert) */
-function showModuleReport(moduleId){
-  const st = moduleState[moduleId];
-  const percent = Math.round((st.correct / st.total) * 100);
-  const msgs = {
-    100: "¡Perfecto! Dominio completo del módulo.",
-    80: "Muy bien — buen dominio, repasa un par de conceptos.",
-    60: "Bien, pero revisa conceptos clave.",
-    40: "Necesitas reforzar varios puntos. Revisa las secciones.",
-    20: "Repasa el módulo: hay confusiones importantes.",
-    0: "Te recomiendo leer con calma el módulo y volver a intentar."
-  };
-  let msg = msgs[100];
-  if(percent === 100) msg = msgs[100];
-  else if(percent >= 80) msg = msgs[80];
-  else if(percent >= 60) msg = msgs[60];
-  else if(percent >= 40) msg = msgs[40];
-  else if(percent >= 20) msg = msgs[20];
-  else msg = msgs[0];
-
-  alert(`Informe — ${moduleId.toUpperCase()}\nPuntuación: ${st.correct}/${st.total} (${percent}%)\n\n${msg}`);
-}
-
-/* Initialize states on load */
-initModuleState();
-
-/* Accessibility: allow Enter on acc-headers */
-document.querySelectorAll('.acc-header').forEach(h => {
-  h.tabIndex = 0;
-  h.addEventListener('keydown', e => {
-    if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAcc(h); }
+  // accessibility: allow keyboard navigation to modules using arrow keys
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowDown'){ nextModule(); }
+    if(e.key === 'ArrowUp'){ prevModule(); }
   });
+
+  // ensure sidebar active corresponds to first module on load
+  clearActiveMenu();
+  const firstBtn = document.querySelector('.menu button[data-target="m1"]');
+  if(firstBtn) firstBtn.classList.add('active');
 });
 
-/* Small UX: collapse other acc bodies in same module when opening one (optional) */
-document.querySelectorAll('.acc-header').forEach(h => {
-  h.addEventListener('click', () => {
-    // find parent accordion
-    const parent = h.closest('.accordion');
-    if(!parent) return;
-    // close others
-    parent.querySelectorAll('.acc-body').forEach(b => {
-      const id = b.id;
-      if(id !== h.getAttribute('data-acc') && b.classList.contains('open')) {
-        b.classList.remove('open');
-        // find corresponding header to change arrow
-        const hdr = parent.querySelector(`.acc-header[data-acc="${b.id}"]`);
-        if(hdr) hdr.querySelector('.chev').textContent = '⯈';
-      }
-    });
-  });
-});
+/* Optional helper to open a specific accordion programmatically
+   e.g., openAccordion('#m1 .accordion-group .acc-item:nth-child(1)')
+*/
+function openAccordion(selector){
+  const el = document.querySelector(selector);
+  if(!el) return;
+  const head = el.querySelector('.acc-head');
+  if(head) toggleAccordion(head);
+}
+
+/* Expose some functions for console debugging if needed */
+window.gotoModule = gotoModule;
+window.prevModule = prevModule;
+window.nextModule = nextModule;
+window.toggleAccordion = function(head){ toggleAccordion(head); };
+
 </script>
 </body>
 </html>
